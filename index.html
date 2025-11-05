@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentence Structures Workshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-800">
+    <div id="root"></div>
+    
+    <!-- Audio Elements for Sound Effects -->
+    <audio id="sfx-correct" src="data:audio/wav;base64,UklGRkIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAAD//v8IAAAACAIAAAQG//oG/vz//fH75/vQ+rb5vPgk+eP5r/m3+Mr2n/Zc9V/zmfK/8qP1S/Zl9wL6sP02AAAGBQVHCUgMLxAuEzEVGBcZGx0gIiQlJikqKywtLi8wMTI0Njc5Ojs8Pj9AQUJERUZIS01PUFFTVFVXV1haW1xdXV9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1+f4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq6+zt7u/w8fLz9PX29/j5+vv8/f7/AAMGBwgKCw0PERITFRYXGRscHyEiJCUmKSorLC0uLzAyNDU2Nzg5Ozw+P0BCREVGSEtNT1BRUlNUVVZXWFpbXF1eX2BhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ent8fX5/gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v8AAwYHCQoLDUA="></audio>
+    <audio id="sfx-incorrect" src="data:audio/wav;base64,UklGRpIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YWYAAABIAE4AawB5AI4AswC8AMQAxgDJAMUAwgC/ALUApACMAPv96/2P/f38+/l/+Vj4LvhY96X2FvgK+bL42/f49xD33vY4+G/7BwEwA7QDsQHy/PD3ev3n+iMC8wM4A4P/0fcK/P742/3w/ZIDSAWr//b3+/hW/P/6qf2n/Hn6o/wA/M/72frk+g37q/v0/Pn+kQAZAS8BAwC//sf6sfrb+2QAsQEjARb/wvqV+tb82gHwAqYC7wBq/17+EAEsA2gC4/2J/Qz/jQdJBr0CmwD2/aUAZQLBAysC3P+V/k3/x/3n+wD8kvy7+1f6s/g9+U/5V/mH+Wb4lffg9032U/V582TwhfBc7zDv3/Aj8oHy3fP49fP36Pw1/l8="></audio>
+    <audio id="sfx-drag" src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAD6/v/8/v/+/////v78/v39/v7+/vz9//4AAAD9/v39/v7+/v79/v79//8AAAD9/v3+/v7+/v7+/v7+/v/+/vz9/P38/Pz9/f7+/f/+/fz9/v7+/g=="></audio>
+    <audio id="sfx-drop" src="data:audio/wav;base64,UklGRpIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YWYAAABSAE4AaACDAKgAugDBALkAqgCEAGwAPgAWAP3+n/3j/Wf9xfvS+038Ff0d/sT8jP0i/hMBGgLCAp0CZwG5ADL/sfpS+7H+cQHaAv8DEgJ0/9777f2VAmUDRgOe/2T8oPyC/n8CogR/A/H/KvwW/pQCWgUUBP//rP2H/zcF0wYAA1b+0fz6/pcDNwY2BAQCF/5u/P/9oQJ6BKMDGgE7/ob9w/70AZUDAgL0/oH9Tf6i/s/87vqD+zD9V/4e/6D/rv5b+977Mv73/Sj/Yv7t+9H70PxJ/sD+8gEAAg8CgAH4/t3+4ADdAiUChP+5/hL/9v1z/Gn6Ivg6+Pz3V/f/94v5W/sw/oYAOwI6A0wCfgBo/9P+rADTAi8C3/7O/Tz+svyV+7/6W/kC+e/31/bN9fL08/XG9sb25/eA+R77oP5aAMsCKQPuA+8CNQEW/1395/zL/Wz/pQGqA70="></audio>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
